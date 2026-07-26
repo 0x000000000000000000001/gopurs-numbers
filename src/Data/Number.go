@@ -11,7 +11,7 @@ func IsFinite(v float64) bool {
 	return !math.IsNaN(v) && !math.IsInf(v, 0)
 }
 
-func FromStringImpl(str string, isFinite func(float64) bool, just func(float64) any, nothing any) any {
+func FromStringImpl(str string, isFinite func(float64) bool, just func(float64) interface{}, nothing interface{}) interface{} {
 	val, err := strconv.ParseFloat(str, 64)
 	if err != nil {
 		return nothing
